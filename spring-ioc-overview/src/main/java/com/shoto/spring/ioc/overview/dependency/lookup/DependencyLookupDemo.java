@@ -18,7 +18,7 @@ public class DependencyLookupDemo {
     public static void main(String[] args) {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/dependency-lookup-context.xml");
-//        lookupById(context);
+        lookupById(context);
 //        lookupByNamed(context);
 //        lookupByType(context);
 //        lookupByLazy(context);

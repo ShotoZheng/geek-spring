@@ -7,6 +7,22 @@
     <bean id="user" class="com.shoto.spring.ioc.overview.domain.User" name="user">
         <property name="name" value="shoto"/>
         <property name="age" value="21"/>
+        <property name="city" value="SHENZHEN"/>
+<!--        <property name="workCities" value="SHENZHEN,BEIJING" />-->
+        <property name="workCities" >
+            <list>
+                <value>SHENZHEN</value>
+                <value>BEIJING</value>
+            </list>
+        </property>
+<!--        <property name="lifeCities" value="SHENZHEN,HANGZHOU" />-->
+        <property name="lifeCities">
+            <array>
+                <value>SHENZHEN</value>
+                <value>HANGZHOU</value>
+            </array>
+        </property>
+        <property name="resourceFileLocation" value="META-INF/user.properties"/>
     </bean>
 
     <bean id="superUser" class="com.shoto.spring.ioc.overview.domain.SuperUser" parent="user" primary="true">
