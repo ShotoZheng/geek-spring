@@ -3,6 +3,7 @@ package com.shoto.spring.ioc.overview.domain;
 import com.shoto.spring.ioc.overview.enums.City;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,6 +69,11 @@ public class User {
     public void setResourceFileLocation(Resource resourceFileLocation) {
         this.resourceFileLocation = resourceFileLocation;
     }
+
+//    @PostConstruct
+//    public void init() {
+//        System.out.println("user init");
+//    }
 
     @Override
     public String toString() {
