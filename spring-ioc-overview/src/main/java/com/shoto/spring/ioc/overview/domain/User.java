@@ -1,16 +1,18 @@
 package com.shoto.spring.ioc.overview.domain;
 
 import com.shoto.spring.ioc.overview.enums.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author admin
  */
-public class User {
+public class User implements BeanNameAware {
     private String name;
     private Integer age;
 
@@ -21,6 +23,8 @@ public class User {
     private City[] lifeCities;
 
     private Resource resourceFileLocation;
+
+    private transient String beanName;
 
     public String getName() {
         return name;
@@ -70,11 +74,6 @@ public class User {
         this.resourceFileLocation = resourceFileLocation;
     }
 
-//    @PostConstruct
-//    public void init() {
-//        System.out.println("user init");
-//    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -95,5 +94,20 @@ public class User {
        user.setName("shoto");
        user.setAge(25);
        return user;
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("user " + beanName + " init...");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("user " + beanName + " destroy...");
     }
 }
