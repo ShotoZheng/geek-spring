@@ -35,13 +35,7 @@ public class HierarchicalDependencyLookupDemo {
         System.out.println(users);
 
         context.refresh();
-
-
-
-
-
         context.close();
-
     }
 
     private static void displayContainerBean(HierarchicalBeanFactory beanFactory, String beanName) {
@@ -61,6 +55,9 @@ public class HierarchicalDependencyLookupDemo {
 
     private static void displayContainerLocalBean(BeanFactory beanFactory, String beanName) {
         System.out.printf("当前 BeanFactory[%s] 是否包含 BeanName[%s]，结果:[%s]\n", beanFactory, beanName, beanFactory.containsBean(beanName));
+        if (beanFactory instanceof HierarchicalBeanFactory sonBeanFactory) {
+            System.out.printf("当前 BeanFactory[%s] 是否包含 Local BeanName[%s]，结果:[%s]\n", beanFactory, beanName, sonBeanFactory.containsLocalBean(beanName));
+        }
     }
 
     private static HierarchicalBeanFactory createParentBeanFactory() {
