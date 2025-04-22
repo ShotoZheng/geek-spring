@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author admin
@@ -27,6 +28,8 @@ public class User implements BeanNameAware {
     private Company company;
 
     private transient String beanName;
+
+    private Properties context;
 
     public String getName() {
         return name;
@@ -76,6 +79,14 @@ public class User implements BeanNameAware {
         this.resourceFileLocation = resourceFileLocation;
     }
 
+    public Properties getContext() {
+        return context;
+    }
+
+    public void setContext(Properties context) {
+        this.context = context;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -87,6 +98,7 @@ public class User implements BeanNameAware {
                 ", resourceFileLocation=" + resourceFileLocation +
                 ", company=" + company +
                 ", beanName='" + beanName + '\'' +
+                ", context=" + context +
                 '}';
     }
 
