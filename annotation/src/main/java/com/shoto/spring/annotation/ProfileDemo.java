@@ -20,8 +20,8 @@ public class ProfileDemo {
 
         ConfigurableEnvironment environment = context.getEnvironment();
         environment.setDefaultProfiles("odd"); // 设置默认 profile
-        environment.setActiveProfiles("even"); // 设置激活 profile
-
+//        environment.setActiveProfiles("even"); // 设置激活 profile
+        // 采用 -Dspring.profiles.active=even 实现
         context.refresh();
 
         Integer number = context.getBean("number", Integer.class);
